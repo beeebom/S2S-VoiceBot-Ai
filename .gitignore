@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+*.jsonl
+shot_*.png
+dash_check.html
+data/
+server.log
+server.err

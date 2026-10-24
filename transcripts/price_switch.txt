@@ -1,0 +1,8 @@
+Agent: Hi, I'm calling from LearnLoop. I saw you cancelled your subscription last week. Could I ask what led to that?
+User: It just got too expensive for what I was using.
+Agent: What were you paying, and what did it feel like it should cost?
+User: I was on the 599 a month plan. I only used the vocab practice really. For that, maybe 199 or 249 would be fair.
+Agent: Did you move to something else?
+User: Yeah, I'm using Duolingo now, the free version.
+Agent: If there were a vocab-only plan at around 199, would you consider coming back?
+User: Probably, yeah. If it was under 250 I'd come back.

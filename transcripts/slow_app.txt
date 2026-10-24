@@ -1,0 +1,10 @@
+Agent: Hi, calling from SnapShelf about your account. Do you have two minutes to tell me why you stopped using it?
+User: It got really slow. Like painfully slow.
+Agent: Slow where, the whole app or one part?
+User: Opening an album. It would sit on a white screen for ten, fifteen seconds before anything showed.
+Agent: How many photos were in those albums roughly?
+User: The big one had maybe two thousand. The small ones were fine.
+Agent: What phone are you on?
+User: iPhone 12.
+Agent: Would you come back if albums opened quickly?
+User: Maybe. I've mostly moved my stuff already, so it would have to be properly fixed.

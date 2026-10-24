@@ -1,0 +1,10 @@
+Agent: Hi, this is Meoww calling on behalf of SnapShelf. You left a review saying the app kept crashing. Do you have two minutes to tell me what happened?
+User: Yeah sure. It crashed every time I tried uploading photos.
+Agent: What were you uploading, and how many at once?
+User: Like twenty photos from my gallery at once. It would freeze and then close.
+Agent: Which phone are you using?
+User: Redmi Note 11. Android.
+Agent: Did it ever work with fewer photos?
+User: Five or six was fine. Anything more than ten and it died.
+Agent: If bulk upload worked, would you come back to SnapShelf?
+User: Yeah honestly, that was the only thing wrong. I liked the albums feature.

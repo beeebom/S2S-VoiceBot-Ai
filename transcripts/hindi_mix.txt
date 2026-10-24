@@ -1,0 +1,8 @@
+Agent: Hello, main Maya bol rahi hoon SnapShelf se. Aapne app use karna band kar diya, kya main pooch sakti hoon kyun?
+User: Haan, photos upload karte waqt app band ho jaata tha. Har baar.
+Agent: Kitni photos upload kar rahe the aap?
+User: Pachaas saath. Ek saath. Phir app crash ho jaata tha.
+Agent: Aapka phone kaun sa hai?
+User: Samsung M31.
+Agent: Agar yeh theek ho jaaye toh aap wapas aayenge?
+User: Haan bilkul, baaki sab achha tha.

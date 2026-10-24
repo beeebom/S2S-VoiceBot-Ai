@@ -1,0 +1,8 @@
+Agent: Hi, this is Maya from SnapShelf. Could I ask why you stopped using it?
+User: I accidentally deleted an album and there was no way to get it back.
+Agent: What happened exactly?
+User: I was trying to remove one photo and somehow deleted the whole album. There was no undo, no trash, nothing.
+Agent: Did you contact support?
+User: They said it was permanent. Forty photos from my daughter's birthday, gone.
+Agent: Would you use it again if there were a recycle bin?
+User: I do not think so. I do not trust it with important photos now.

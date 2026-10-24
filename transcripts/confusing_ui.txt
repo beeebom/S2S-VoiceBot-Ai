@@ -1,0 +1,8 @@
+Agent: Hi, this is Maya from SnapShelf. Could I ask why you stopped using the app?
+User: I could never work out how to share an album with someone.
+Agent: What were you trying to do when you got stuck?
+User: Send a holiday album to my sister. I kept finding the share button but it only let me send single photos. I spent twenty minutes on it.
+Agent: Did you find it in the end?
+User: No. I gave up and emailed her the photos instead.
+Agent: If sharing an album were obvious, would you use it again?
+User: Yeah probably, that was the main thing I wanted it for.

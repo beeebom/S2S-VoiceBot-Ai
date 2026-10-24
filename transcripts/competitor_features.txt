@@ -1,0 +1,8 @@
+Agent: Hi, calling from SnapShelf. You cancelled recently. What made you switch?
+User: I moved to Apple Photos. It does face recognition and SnapShelf does not.
+Agent: Was that the main thing?
+User: Mostly. Being able to tap a person and see every photo of them is really useful with family pictures.
+Agent: Was price a factor at all?
+User: No, price was fine. It was just missing that.
+Agent: If face recognition were added, would you come back?
+User: Honestly probably not now. I have everything set up in Apple Photos.

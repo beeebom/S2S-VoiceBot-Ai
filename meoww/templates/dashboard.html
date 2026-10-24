@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meoww</title>
+<style>
+  :root {
+    --navy: #10213d; --ink: #1a2330; --body: #4a5568; --muted: #6b7689;
+    --bg: #f4f2ed; --card: #ffffff; --line: #ddd8cc;
+    --amber: #a8742a; --amber-bg: #fbf3e4;
+    --green: #1e6b4f; --red: #9a3324;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.5 -apple-system, "Segoe UI", system-ui, sans-serif;
+  }
+  header {
+    background: var(--navy); color: #f4f2ed; padding: 22px 28px;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  }
+  header h1 { margin: 0; font-size: 23px; letter-spacing: .5px; }
+  header .tag { color: #e8a33d; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+  header .spacer { flex: 1; }
+  header .refresh { color: #9fb0c8; font-size: 12px; }
+  main { max-width: 1080px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  .intro { max-width: 1080px; margin: 0 auto; padding: 26px 20px 4px; }
+  .intro .lede { font-size: 19px; line-height: 1.45; color: var(--navy); max-width: 720px; margin: 0 0 18px; }
+  .intro .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .intro .step {
+    background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+    padding: 12px 14px; font-size: 13.5px; line-height: 1.45; color: var(--body);
+  }
+  .intro .step .num {
+    display: inline-block; width: 19px; height: 19px; line-height: 19px;
+    text-align: center; background: var(--navy); color: #fff;
+    border-radius: 4px; font-size: 11px; font-weight: 700; margin-right: 7px;
+  }
+  .intro .why {
+    font-size: 14px; line-height: 1.5; color: var(--body);
+    border-left: 3px solid var(--amber); padding-left: 14px; max-width: 720px; margin: 0 0 4px;
+  }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 28px; }
+  .tile { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .tile .label { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--amber); }
+  .tile .value { font-size: 32px; font-weight: 600; margin-top: 6px; color: var(--navy); }
+  .tile .note { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .tile.accent { background: var(--navy); border-color: var(--navy); }
+  .tile.accent .label { color: #e8a33d; }
+  .tile.accent .value { color: #fff; }
+  .tile.accent .note { color: #9fb0c8; }
+
+  h2 { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); margin: 0 0 12px; }
+
+  .themes { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; margin-bottom: 28px; }
+  .theme { display: flex; align-items: center; gap: 12px; margin: 8px 0; font-size: 14px; }
+  .theme .name { width: 150px; font-weight: 600; text-transform: capitalize; }
+  .theme .bar { height: 10px; background: var(--amber); border-radius: 5px; min-width: 3px; }
+  .theme .n { color: var(--muted); font-size: 13px; }
+
+  .call { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .call > summary {
+    cursor: pointer; padding: 14px 18px; display: flex; gap: 12px;
+    align-items: center; flex-wrap: wrap; list-style: none;
+  }
+  .call > summary::-webkit-details-marker { display: none; }
+  .call > summary:hover { background: #fbfaf7; }
+  .call .reason { font-weight: 600; text-transform: capitalize; min-width: 130px; }
+  .call .summary-text { flex: 1; color: var(--body); font-size: 14px; min-width: 240px; }
+  .call .when { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+  .flag { font-size: 10px; font-weight: 700; letter-spacing: .8px; padding: 3px 7px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; }
+  .flag.actionable { background: #e6f0ea; color: var(--green); }
+  .flag.save { background: var(--navy); color: #e8a33d; }
+  .flag.followup { background: var(--amber-bg); color: var(--amber); }
+  .flag.none { background: #efefe9; color: var(--muted); }
+  .flag.failed { background: #f7e9e6; color: var(--red); }
+
+  .body { border-top: 1px solid var(--line); padding: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 760px) { .body { grid-template-columns: 1fr; } }
+
+  table.fields { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.fields th { text-align: left; width: 42%; font-weight: 600; color: var(--navy); padding: 6px 8px 6px 0; vertical-align: top; }
+  table.fields td { padding: 6px 0; color: var(--body); vertical-align: top; }
+  table.fields tr + tr { border-top: 1px solid #f0ede5; }
+  .inferred { font-size: 11px; color: var(--red); font-weight: 600; }
+  .stated { font-size: 11px; color: var(--green); font-weight: 600; }
+  .basis { font-size: 12px; color: var(--muted); font-style: italic; }
+
+  blockquote { margin: 0 0 10px; padding: 10px 12px; background: var(--amber-bg); border-left: 3px solid #e8a33d; border-radius: 0 6px 6px 0; font-size: 14px; }
+  .transcript { background: #fbfaf7; border: 1px solid var(--line); border-radius: 8px; padding: 12px; font-size: 13px; max-height: 260px; overflow: auto; white-space: pre-wrap; color: var(--body); }
+  audio { width: 100%; margin-bottom: 12px; }
+  .banner {
+    background: #fff5e0; border: 1px solid #e2b86a; border-left: 4px solid var(--amber);
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 20px;
+    font-size: 14px; color: #5c4414;
+  }
+  .banner strong { color: #4a3208; }
+  .flag.simulated { background: #5c4414; color: #fff5e0; }
+  .tile .note.sim { color: var(--amber); font-weight: 600; }
+  .empty { background: var(--card); border: 1px dashed var(--line); border-radius: 10px; padding: 40px 24px; text-align: center; color: var(--muted); }
+  .empty code { background: #efede6; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  .note-line { color: var(--red); font-size: 13px; }
+</style>
+</head>
+<body>
+<header>
+  <span class="tag">Meoww</span>
+  <h1>Churn calls</h1>
+  <span class="spacer"></span>
+  <span class="refresh">auto-refreshes every 15s</span>
+</header>
+
+<section class="intro">
+  <p class="lede">
+    A user stops using your product. Meoww phones them, asks why, and turns
+    that conversation into a record someone can act on.
+  </p>
+  <div class="steps">
+    <div class="step"><span class="num">1</span> A churn signal arrives: a bad review, a cancelled plan, an account gone quiet.</div>
+    <div class="step"><span class="num">2</span> The voice agent calls and interviews them, following up on whatever they say.</div>
+    <div class="step"><span class="num">3</span> The call becomes a typed record: reason, severity, the price they would have stayed at.</div>
+    <div class="step"><span class="num">4</span> Each field is scored, and marked as either stated by the user or inferred.</div>
+  </div>
+  <p class="why">
+    The last step is the point. Anyone can summarise a call. Knowing which parts
+    of that summary the user actually said, and which the model guessed, is what
+    makes the data safe to act on.
+  </p>
+</section>
+
+<main>
+  {% if stats.any_simulated %}
+  <div class="banner">
+    {% if stats.all_simulated %}
+      <strong>Extraction is live. Telephony is not connected.</strong>
+      Every record below came out of the real pipeline: the transcript went to
+      the Bolna agent's extraction endpoint and the answers were mapped by the
+      same code a phone call uses. What did not happen is the call itself,
+      because an Indian number requires KYC verification. Attaching a number is
+      configuration, not new code.
+    {% else %}
+      <strong>Contains simulated calls.</strong>
+      {{ stats.real }} real call{{ '' if stats.real == 1 else 's' }},
+      {{ stats.simulated }} simulated. Simulated rows are marked in the list.
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="tiles">
+    <div class="tile">
+      <div class="label">Calls</div>
+      <div class="value">{{ stats.calls }}</div>
+      {% if stats.all_simulated %}
+        <div class="note sim">all simulated</div>
+      {% elif stats.any_simulated %}
+        <div class="note sim">{{ stats.simulated }} simulated</div>
+      {% else %}
+        <div class="note">including unanswered</div>
+      {% endif %}
+    </div>
+    <div class="tile">
+      <div class="label">With a record</div>
+      <div class="value">{{ stats.with_record }}</div>
+      <div class="note">the call surfaced something</div>
+    </div>
+    <div class="tile">
+      <div class="label">Actionable</div>
+      <div class="value">{{ stats.actionable }}</div>
+      <div class="note">the user stated the reason themselves</div>
+    </div>
+    <div class="tile accent">
+      <div class="label">Could be won back</div>
+      <div class="value">{{ stats.save_opportunities }}</div>
+      <div class="note">said what would bring them back</div>
+    </div>
+    <div class="tile">
+      <div class="label">Median call</div>
+      <div class="value">{{ median }}</div>
+      <div class="note">minutes:seconds</div>
+    </div>
+  </div>
+
+  {% if stats.reasons_ranked %}
+  <div class="themes">
+    <h2>What is driving churn</h2>
+    {% for reason, count in stats.reasons_ranked %}
+    <div class="theme">
+      <span class="name">{{ reason.replace('_', ' ') }}</span>
+      {# Width is the share of all actionable calls, so two themes at one
+         call each read as half-and-half rather than two full bars. #}
+      <span class="bar" style="width: {{ (20 + count / stats.actionable * 280) | round | int }}px"></span>
+      <span class="n">{{ count }}</span>
+    </div>
+    {% endfor %}
+    <div class="note" style="font-size:12px;color:var(--muted);margin-top:10px">
+      Actionable calls only: a reason the user stated themselves.
+    </div>
+  </div>
+  {% endif %}
+
+  <h2>Calls</h2>
+  {% if not calls %}
+  <div class="empty">
+    <p>No calls yet.</p>
+    <p>Point your Bolna agent's webhook at <code>/webhook/bolna</code> and make a call.</p>
+  </div>
+  {% endif %}
+
+  {% for c in calls %}
+  {% set r = c.record %}
+  <details class="call">
+    <summary>
+      {% if r %}
+        <span class="reason">{{ r.reason.replace('_', ' ') }}</span>
+        <span class="summary-text">{{ r.summary }}</span>
+        {% if c.flags.actionable %}<span class="flag actionable">actionable</span>{% endif %}
+        {% if c.flags.save %}<span class="flag save">save</span>{% endif %}
+        {% if r.followup_needed %}<span class="flag followup">follow-up</span>{% endif %}
+        {% if not c.flags.actionable and not c.flags.save %}<span class="flag none">context only</span>{% endif %}
+      {% else %}
+        <span class="reason">no record</span>
+        <span class="summary-text note-line">{{ c.note or c.status }}</span>
+        <span class="flag failed">{{ c.status }}</span>
+      {% endif %}
+      {% if c.simulated %}<span class="flag simulated">simulated</span>{% endif %}
+      <span class="when">{{ c.when }}</span>
+    </summary>
+
+    <div class="body">
+      <div>
+        {% if r %}
+        <h2>The record</h2>
+        <table class="fields">
+          <tr><th>Reason</th><td>
+            {{ r.reason.replace('_', ' ') }}
+            {% if r.reason_confidence.stated %}<span class="stated">&nbsp;user stated</span>
+            {% else %}<span class="inferred">&nbsp;inferred</span>{% endif %}
+            <div class="basis">{{ r.reason_confidence.score }} &middot; {{ r.reason_confidence.basis }}</div>
+          </td></tr>
+          <tr><th>Severity</th><td>{{ r.severity }}</td></tr>
+          <tr><th>Would return</th><td>
+            {{ r.return_likelihood.replace('_', ' ') }}
+            {% if not r.return_confidence.stated %}<span class="inferred">&nbsp;inferred</span>{% endif %}
+          </td></tr>
+          {% if r.return_condition %}
+          <tr><th>Return condition</th><td><strong>{{ r.return_condition }}</strong></td></tr>
+          {% endif %}
+          {% if r.bug %}
+            {% if r.bug.surface %}<tr><th>Surface</th><td>{{ r.bug.surface }}</td></tr>{% endif %}
+            {% if r.bug.device %}<tr><th>Device</th><td>{{ r.bug.device }}</td></tr>{% endif %}
+            {% if r.bug.platform %}<tr><th>Platform</th><td>{{ r.bug.platform }}</td></tr>{% endif %}
+            {% if r.bug.steps %}<tr><th>Steps</th><td>{{ r.bug.steps }}</td></tr>{% endif %}
+            {% if r.bug.frequency %}<tr><th>Frequency</th><td>{{ r.bug.frequency }}</td></tr>{% endif %}
+          {% endif %}
+          {% if r.price %}
+            {% if r.price.current_price %}<tr><th>Was paying</th><td>{{ r.price.current_price }}</td></tr>{% endif %}
+            {% if r.price.acceptable_price %}<tr><th>Would pay</th><td><strong>{{ r.price.acceptable_price }}</strong></td></tr>{% endif %}
+            {% if r.price.competitor %}<tr><th>Switched to</th><td>{{ r.price.competitor }}</td></tr>{% endif %}
+          {% endif %}
+          <tr><th>Interview quality</th><td>{{ r.interview_quality }}</td></tr>
+        </table>
+        {% else %}
+        <h2>No record</h2>
+        <p class="note-line">{{ c.note or 'Nothing extracted from this call.' }}</p>
+        <p class="basis">The call is still counted, so the save rate stays honest.</p>
+        {% endif %}
+      </div>
+
+      <div>
+        {% if c.recording_url %}
+        <h2>Recording</h2>
+        <audio controls preload="none" src="{{ c.recording_url }}"></audio>
+        {% endif %}
+
+        {% if r and r.verbatim %}
+        <h2>In their words</h2>
+        {% for q in r.verbatim %}<blockquote>{{ q }}</blockquote>{% endfor %}
+        {% endif %}
+
+        {% if c.transcript %}
+        <h2>Transcript</h2>
+        <div class="transcript">{{ c.transcript }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </details>
+  {% endfor %}
+</main>
+
+<script>
+  // Refresh only while every call is collapsed, so a reload never closes
+  // something a judge is reading mid-demo.
+  setInterval(function () {
+    if (!document.querySelector('details[open]')) location.reload();
+  }, 15000);
+</script>
+</body>
+</html>

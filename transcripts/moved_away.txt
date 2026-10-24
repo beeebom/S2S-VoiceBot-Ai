@@ -1,0 +1,6 @@
+Agent: Hi, calling from SnapShelf. I noticed you haven't opened the app in a while. Anything wrong with it?
+User: No, nothing wrong. I just finished the project I was using it for.
+Agent: What were you using it for?
+User: I was organising photos for my sister's wedding. That's done now, so I don't really need it.
+Agent: Would you use it again for something similar?
+User: Yeah, if I had another event I'd probably come back to it. It worked fine.

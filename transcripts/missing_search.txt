@@ -1,0 +1,8 @@
+Agent: Hi, this is Maya from SnapShelf. You stopped using the app, could I ask why?
+User: There was no way to search my photos. None at all.
+Agent: What were you trying to find?
+User: Photos from a particular trip. I had thousands of pictures and had to scroll for ten minutes.
+Agent: Did you try organising them into albums?
+User: I did but I have too many. I needed to just type beach or 2024 and find things.
+Agent: If search were added, would you use it again?
+User: Yes, that is the only thing stopping me.

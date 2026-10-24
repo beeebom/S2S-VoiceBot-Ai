@@ -1,0 +1,8 @@
+Agent: Hi, calling from SnapShelf. Why did you stop using the app?
+User: It did not back up automatically. I had to remember to open it and upload.
+Agent: What did you expect instead?
+User: Like Google Photos, where it just syncs in the background without me doing anything.
+Agent: Did you lose anything because of that?
+User: Yes, my phone died and I lost about three weeks of photos that had not been uploaded.
+Agent: Would automatic backup bring you back?
+User: Maybe. I am a bit wary now after losing those.

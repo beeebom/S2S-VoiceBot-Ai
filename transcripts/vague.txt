@@ -1,0 +1,6 @@
+Agent: Hi, calling from FitTrack. We noticed you haven't opened the app in a few weeks. Mind telling me why?
+User: I don't know, just stopped.
+Agent: Was there anything about the app that bothered you?
+User: Not really. Maybe. I don't remember.
+Agent: Is it something you'd use again?
+User: Maybe, I don't know. I'm kind of busy right now.

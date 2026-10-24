@@ -1,0 +1,10 @@
+Agent: Hi, this is Maya from SnapShelf. You left a one star review last week. Could I ask what went wrong?
+User: The app closed itself every time I tried to upload anything from my camera roll.
+Agent: Was it any upload, or particular ones?
+User: Any of them really. Even one photo sometimes. It just blinked and went back to the home screen.
+Agent: Which phone are you using?
+User: OnePlus Nord, Android 13.
+Agent: Had it worked before, or was it always like this?
+User: It worked for about two months. Then after an update it started doing this.
+Agent: If that were fixed, would you try it again?
+User: Yeah, I would. I had all my trip photos in there.

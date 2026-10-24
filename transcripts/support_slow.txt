@@ -1,0 +1,8 @@
+Agent: Hi, this is Maya from SnapShelf. Why did you stop using the app?
+User: I had a billing question and it took eleven days to get an answer.
+Agent: What was the question?
+User: I was charged twice in one month. I just wanted to know why.
+Agent: Did they sort it out?
+User: Eventually yes, they refunded one. But eleven days for a simple question is ridiculous.
+Agent: Would you consider coming back?
+User: Not really. If something goes wrong I do not want to wait two weeks.

@@ -1,0 +1,8 @@
+Agent: Hi, calling from SnapShelf. I saw your account went quiet. What happened?
+User: I got logged out and then I could never get back in.
+Agent: What happened when you tried?
+User: I put my email in, it said check your inbox for the link, and the link never came. I tried about six times over two days.
+Agent: Did you check spam?
+User: Yes, nothing. I even tried a different email and the same thing.
+Agent: Would you come back if login worked?
+User: I suppose so, but I have moved everything to Dropbox now so it would be a hassle.

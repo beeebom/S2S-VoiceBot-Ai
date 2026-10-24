@@ -1,0 +1,8 @@
+Agent: Hi, calling from SnapShelf. I noticed you stopped opening the app. Anything wrong?
+User: It was eating my battery. I checked settings and it was using thirty percent in the background.
+Agent: Were you uploading a lot at the time?
+User: No, that is the thing. Even when I was not using it.
+Agent: What phone?
+User: iPhone 13.
+Agent: If the battery issue were fixed, would you come back?
+User: Yeah, that was my only problem with it.

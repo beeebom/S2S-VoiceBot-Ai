@@ -1,0 +1,8 @@
+Agent: Hi, calling from SnapShelf about your cancellation. What led to it?
+User: I was paying 599 and I only used it maybe twice a month. Did not feel worth it.
+Agent: What would have felt worth it?
+User: Either more for the price, or a cheaper tier. 199 for basic storage would be fine.
+Agent: Anything you wished it had?
+User: Not really, I just did not use it enough.
+Agent: Would 199 bring you back?
+User: Probably yes, at that price I would not think about it.

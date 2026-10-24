@@ -1,0 +1,8 @@
+Agent: Hi, this is Maya calling from SnapShelf. You cancelled recently, could I ask why?
+User: I got charged 2999 out of nowhere. I thought I was on the monthly plan.
+Agent: What had you signed up for?
+User: Monthly at 299. Then it renewed as an annual plan and took 2999 in one go.
+Agent: Did you contact support about it?
+User: Yes, they refunded it eventually but it took two weeks and I had bills to pay.
+Agent: Would you use SnapShelf again?
+User: No. I don't want to worry about what's going to come out of my account.

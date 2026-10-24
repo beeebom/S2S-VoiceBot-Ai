@@ -1,0 +1,8 @@
+Agent: Hi, this is Maya from SnapShelf. Could I ask why you closed your account?
+User: I read that the terms let you use my photos for training. That did not sit right with me.
+Agent: Where did you read that?
+User: Someone posted about it. I went and read the terms and it did seem to say that.
+Agent: Did you contact anyone about it?
+User: No, I just deleted everything and left.
+Agent: Would a clearer policy change your mind?
+User: Maybe, but I would need to see it explicitly say photos are not used for training.

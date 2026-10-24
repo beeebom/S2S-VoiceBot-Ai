@@ -1,0 +1,8 @@
+Agent: Hi, this is Maya from SnapShelf. I noticed you stopped using the app last month. Could I ask what happened?
+User: I needed to get all my albums out to back them up somewhere else, and there was just no way to do it.
+Agent: What were you trying to do exactly?
+User: Download everything as a zip, or even just one album at a time. I could only save photos one by one. I had like four hundred.
+Agent: Did you find another way around it?
+User: I ended up just screenshotting some and giving up on the rest. Then I moved to Google Photos.
+Agent: If there were a bulk export, would you come back?
+User: Honestly yes. Everything else about it I liked, the albums were nicer than Google's.

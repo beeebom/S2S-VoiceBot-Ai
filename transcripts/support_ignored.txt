@@ -1,0 +1,8 @@
+Agent: Hi, I'm calling from SnapShelf. You closed your account recently and I wanted to understand why.
+User: I wrote to support three times and nobody ever replied.
+Agent: What were you writing in about?
+User: My shared album link stopped working and my family couldn't see the photos. I sent a message, nothing. Sent another one a week later, nothing.
+Agent: Did the link issue ever get resolved?
+User: No. I just rebuilt the album somewhere else.
+Agent: Would you consider coming back?
+User: Not really. If something breaks again I'd be in the same spot.

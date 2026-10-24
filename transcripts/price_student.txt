@@ -1,0 +1,8 @@
+Agent: Hi, this is Maya from SnapShelf. You cancelled your plan, could I ask why?
+User: I am a student and 299 a month is a lot for me.
+Agent: What would have felt reasonable?
+User: If there was a student price, maybe 99. I would have kept it at 99 easily.
+Agent: Did you switch to something else?
+User: Just using my phone gallery now.
+Agent: So a student plan around 99 would bring you back?
+User: Yeah definitely, I liked the app.

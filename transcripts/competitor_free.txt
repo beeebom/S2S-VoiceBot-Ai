@@ -1,0 +1,8 @@
+Agent: Hi, calling from SnapShelf. I saw you cancelled last month. What led to that?
+User: My phone came with Google Photos free and it does basically the same thing.
+Agent: Was there anything SnapShelf did better?
+User: The albums were nicer to look at. But not nicer enough to pay for when I already have free storage.
+Agent: Was there a price where it would have been worth keeping?
+User: I don't know. Maybe if it were a one-time thing rather than monthly. Not at 299 a month.
+Agent: Would you come back at a lower price?
+User: Probably not, honestly. The free one is good enough for me.
