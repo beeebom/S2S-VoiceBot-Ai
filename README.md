@@ -3,7 +3,6 @@
 A voice agent that calls users who have just churned, asks why, and turns the
 conversation into a record somebody can act on.
 
-Built on [Bolna](https://bolna.ai) for the Symphony Buildathon 2026.
 
 ## The problem
 
