@@ -38,7 +38,7 @@ STAGES = [
     },
     {
         "key": "tts",
-        "tone": "violet",
+        "tone": "plum",
         "step": "04",
         "title": "Text to speech",
         "sub": "ElevenLabs streaming",
@@ -66,7 +66,7 @@ TONES = {
     "sky": "#2f6f9f",
     "cyan": "#1f7a8c",
     "amber": "#8f6220",
-    "violet": "#6b4a86",
+    "plum": "#6b4a86",
     "green": "#1e6b4f",
     "navy": "#10213d",
 }
@@ -151,7 +151,7 @@ def diagram_html() -> str:
         for t, label in (
             ("cyan", "Audio in"),
             ("amber", "Reasoning"),
-            ("violet", "Audio out"),
+            ("plum", "Audio out"),
             ("green", "Extraction"),
         )
     )

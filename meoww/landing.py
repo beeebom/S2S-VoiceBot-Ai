@@ -144,7 +144,53 @@ h1 {{ font-size:var(--h1); line-height:1.1; margin:0 0 18px; font-weight:600; le
 .cta .secondary:hover {{ background:var(--navy-2); }}
 
 /* ---- sections ---- */
-section {{ padding:var(--sect) 0; border-bottom:1px solid var(--line); }}
+section {{ position:relative; padding:var(--sect) 0; border-bottom:1px solid var(--line); }}
+
+/* A faint woven texture stops the flat fills reading as a template.
+   Two offset repeating gradients, both under 3% opacity: at normal viewing
+   distance it is felt rather than seen. */
+body::before {{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.035;
+  background-image:
+    repeating-linear-gradient(0deg, #10213d 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, #10213d 0 1px, transparent 1px 3px);
+}}
+header, section, footer {{ position:relative; z-index:1; }}
+
+/* Dark sections break the cream run so the page has a pulse. */
+section.dark {{
+  background:var(--navy); color:#e7ecf4; border-bottom-color:var(--line-navy);
+}}
+section.dark h2 {{ color:var(--amber-br); }}
+section.dark .sect-h {{ color:#f4f2ed; }}
+section.dark p {{ color:#c8d4e6; }}
+section.dark .lede {{ color:#f4f2ed; }}
+section.dark .box {{ background:var(--navy-2); border-color:var(--line-navy); }}
+section.dark .box h3 {{ color:#f4f2ed; }}
+section.dark .box p {{ color:#aebdd4; }}
+section.dark .box:hover {{ border-color:#44618f; }}
+section.dark .num {{ background:var(--amber-br); color:#231705; }}
+section.dark .convo {{ background:var(--navy-2); border-color:var(--line-navy); }}
+section.dark .who {{ color:var(--amber-br); }}
+section.dark .turn {{ color:#dce5f1; }}
+section.dark .turn.key .what {{
+  background:rgba(232,163,61,.14); box-shadow:0 0 0 4px rgba(232,163,61,.14); color:#f4f2ed;
+}}
+section.dark .note {{
+  background:var(--navy-2); border-color:var(--line-navy);
+  border-left-color:var(--amber-br); color:#c8d4e6;
+}}
+section.dark .note b {{ color:#f4f2ed; }}
+section.dark pre {{ background:#0b182d; border:1px solid var(--line-navy); }}
+
+/* Section numbering gives the page an index rather than a scroll. */
+.sect-no {{
+  position:absolute; top:calc(var(--sect) - 8px); right:var(--gut);
+  font-size:13px; font-weight:700; letter-spacing:2px; color:var(--line);
+  font-variant-numeric:tabular-nums;
+}}
+section.dark .sect-no {{ color:var(--line-navy); }}
+@media (max-width:760px) {{ .sect-no {{ display:none; }} }}
 section:last-of-type {{ border-bottom:none; }}
 h2 {{ font-size:12px; letter-spacing:1.7px; text-transform:uppercase; color:var(--amber); margin:0 0 18px; font-weight:700; }}
 h3 {{ font-size:18px; margin:0 0 7px; font-weight:600; letter-spacing:-.01em; }}
@@ -320,6 +366,7 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
 </header>
 
 <section id="problem">
+  <span class="sect-no">01</span>
   <div class="wrap">
     <h2 class="rise">The problem</h2>
     <p class="lede rise d1">A user leaves. All you ever learn is two stars and
@@ -332,7 +379,8 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
   </div>
 </section>
 
-<section id="how">
+<section id="how" class="dark">
+  <span class="sect-no">02</span>
   <div class="wrap">
     <h2 class="rise">How it works</h2>
     <div class="grid four">
@@ -345,6 +393,7 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
 </section>
 
 <section id="arch">
+  <span class="sect-no">03</span>
   <div class="wrap">
     <h2 class="rise">The voice pipeline</h2>
     <p class="sect-h rise d1">Six stages between a ringing phone and a typed record.</p>
@@ -352,7 +401,8 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
   </div>
 </section>
 
-<section id="interview">
+<section id="interview" class="dark">
+  <span class="sect-no">04</span>
   <div class="wrap">
     <h2 class="rise">The interview is the product</h2>
     <p class="sect-h rise d1">A weak agent asks three questions and hangs up.</p>
@@ -369,6 +419,7 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
 </section>
 
 <section id="honest">
+  <span class="sect-no">05</span>
   <div class="wrap">
     <h2 class="rise">Honest data</h2>
     <p class="sect-h rise d1">Some conversations are deliberately not counted.</p>
@@ -390,7 +441,8 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
   </div>
 </section>
 
-<section id="state">
+<section id="state" class="dark">
+  <span class="sect-no">06</span>
   <div class="wrap">
     <h2 class="rise">What is built, and what is not</h2>
     <div class="note rise d1">
