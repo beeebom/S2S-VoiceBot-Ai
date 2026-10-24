@@ -40,7 +40,7 @@ TOUR = [
 ]
 
 
-def landing_page(stats: Dict, generated: str) -> str:
+def landing_page(stats: Dict) -> str:
     rotator = json.dumps([{"q": q, "tag": t} for q, t in ROTATOR])
     tour = json.dumps([{"sel": s, "title": t, "body": b} for s, t, b in TOUR])
     reasons = stats.get("reasons_ranked") or []
@@ -382,8 +382,6 @@ python -m meoww.webhook</code></pre>
 
 <footer>
   <div class="wrap">
-    Built with <a href="https://bolna.ai">Bolna</a> for the Symphony Buildathon 2026.
-    Snapshot generated {generated}.
     <div class="links">
       <a href="{REPO}">Source</a> &middot;
       <a href="calls.html">Conversations</a> &middot;

@@ -42,7 +42,7 @@ def export(out_dir: Path, store_path: Path | None = None) -> dict:
         _as_static(dashboard_html, generated), encoding="utf-8"
     )
     (out_dir / "index.html").write_text(
-        landing_page(stats, generated), encoding="utf-8"
+        landing_page(stats), encoding="utf-8"
     )
     (out_dir / "privacy.html").write_text(_legal_page("privacy", generated), encoding="utf-8")
     (out_dir / "terms.html").write_text(_legal_page("terms", generated), encoding="utf-8")
