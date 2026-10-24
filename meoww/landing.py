@@ -1,13 +1,3 @@
-"""The public landing page for the static site.
-
-Kept separate from export.py because it is mostly markup. The page is built
-from the store's own figures, so nothing on it is invented.
-
-Motion is deliberate and limited: a reveal on load, a rotator over real user
-quotes, and a guided tour the visitor starts themselves. Everything is off
-under prefers-reduced-motion, and the page is readable with JavaScript
-disabled.
-"""
 
 from __future__ import annotations
 
@@ -96,8 +86,23 @@ header {{ background:var(--navy); color:#f4f2ed; padding:clamp(40px,7vw,76px) 0 
 .mark {{ display:flex; align-items:center; gap:12px; margin-bottom:clamp(26px,4vw,40px); }}
 .mark span {{ font-size:18px; font-weight:700; letter-spacing:.4px; }}
 h1 {{ font-size:var(--h1); line-height:1.1; margin:0 0 18px; font-weight:600; letter-spacing:-.02em; max-width:17ch; }}
+/* hero mark: speech bubble with a voice trace, drawn rather than bitmapped
+   so it stays crisp at any size and can take the palette. */
+.hero-art {{ position:relative; display:flex; justify-content:center; align-items:center; }}
+.hero-art svg {{ width:min(100%, 300px); height:auto; overflow:visible; }}
+.bubble {{ fill:none; stroke:var(--amber-br); stroke-width:3.4; stroke-linecap:round; stroke-linejoin:round; }}
+.wave {{ fill:none; stroke:#f4f2ed; stroke-width:3.4; stroke-linecap:round; stroke-linejoin:round; }}
+.bubble, .wave {{ stroke-dasharray:var(--len); stroke-dashoffset:var(--len); }}
+.drawn .bubble {{ animation:draw 1.1s var(--ease) forwards; }}
+.drawn .wave {{ animation:draw .9s var(--ease) .45s forwards; }}
+@keyframes draw {{ to {{ stroke-dashoffset:0; }} }}
+@media (prefers-reduced-motion:reduce) {{
+  .bubble, .wave {{ stroke-dashoffset:0; animation:none; }}
+}}
+@media (max-width:999px) {{ .hero-art {{ display:none; }} }}
+
 .hero {{ display:grid; gap:clamp(28px,4vw,56px); align-items:end; }}
-@media (min-width:1000px) {{ .hero {{ grid-template-columns:1.25fr .85fr; }} }}
+@media (min-width:1000px) {{ .hero {{ grid-template-columns:1.15fr .62fr .72fr; align-items:center; }} }}
 .hero-aside {{ display:flex; flex-direction:column; gap:12px; }}
 .aside-card {{ background:var(--navy-2); border:1px solid var(--line-navy); border-radius:10px; padding:16px 18px; }}
 .aside-card .k {{ font-size:11.5px; letter-spacing:1.4px; text-transform:uppercase; color:var(--amber-br); font-weight:700; }}
@@ -277,6 +282,14 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
     </div>
     </div>
 
+    <div class="hero-art rise d2" aria-hidden="true">
+      <svg viewBox="0 0 215 155" role="presentation">
+        <path class="bubble" style="--len:470"
+              d="M92 14 C 52 14, 20 38, 20 70 C 20 88, 30 103, 47 112 C 45 124, 38 133, 26 140 C 45 139, 62 132, 74 120 C 80 122, 86 123, 92 123"/>
+        <path class="wave" style="--len:620"
+              d="M104 74 L112 56 L120 92 L128 30 L136 110 L144 18 L152 118 L160 40 L168 96 L176 60 L184 84 L192 68 L200 76"/>
+      </svg>
+    </div>
     <div class="hero-aside rise d3" aria-label="Figures from the stored conversations">
       <div class="aside-card">
         <div class="k">Conversations</div>
@@ -402,6 +415,10 @@ python -m meoww.webhook</code></pre>
 <script>
 (function () {{
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Draw the hero mark once the page has settled.
+  var art = document.querySelector('.hero-art');
+  if (art && !calm) requestAnimationFrame(function () {{ art.classList.add('drawn'); }});
 
   // Reveal on scroll. Without IntersectionObserver everything is simply shown.
   var rise = [].slice.call(document.querySelectorAll('.rise:not(.in)'));
