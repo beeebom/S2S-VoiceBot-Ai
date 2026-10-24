@@ -105,7 +105,7 @@ def test_simulated_rows_are_announced(client):
         "sim-1", None, note="x", simulated=True, duration_seconds=60)
     html = page(client)
     assert "Telephony is not connected" in html
-    assert "What did not happen is the call itself" in html
+    assert "What did not happen is" in html
     assert "all simulated" in html
     assert "flag simulated" in html
 

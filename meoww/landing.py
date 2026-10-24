@@ -366,11 +366,8 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
     <h2 class="rise">What is built, and what is not</h2>
     <div class="note rise d1">
       <b>Extraction is live. Telephony is not connected.</b>
-      Every record came out of the real pipeline: the transcript went to the
-      Bolna agent's extraction endpoint and the answers were mapped by the same
-      code a phone call uses. What did not happen is the dial, because an Indian
-      number requires KYC verification. Attaching a number is configuration,
-      not new code.
+      Every record below came out of the real pipeline. What did not happen is
+      the dial.
     </div>
     <p class="rise d2" style="margin:20px 0 13px">Run the whole pipeline yourself:</p>
     <pre class="rise d3"><code>git clone {REPO}
