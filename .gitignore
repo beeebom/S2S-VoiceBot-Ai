@@ -3,9 +3,13 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .venv/
-*.jsonl
+# (calls.jsonl is tracked deliberately; see data/ rules below)
 shot_*.png
 dash_check.html
-data/
+# Simulated records are committed so the published site has content.
+data/*
+!data/calls.jsonl
 server.log
 server.err
+site/
+records.jsonl
