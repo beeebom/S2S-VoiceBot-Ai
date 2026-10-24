@@ -66,21 +66,21 @@ def _as_static(html: str, generated: str) -> str:
         f'The live app receives calls by webhook; this page is a static copy.</p>'
         "</main>"
         "<style>.generated{max-width:1080px;margin:0 auto;padding:0 20px 40px;"
-        "font-size:13px;color:#6b7689}</style>",
+        "font-size:13px;color:#A8A49C}</style>",
     )
 
 
 LEGAL_STYLE = """
-  :root { --navy:#10213d; --ink:#1a2330; --body:#4a5568; --muted:#6b7689;
-          --bg:#f4f2ed; --card:#fff; --line:#ddd8cc; --amber:#a8742a; }
+  :root { --navy:#0E0D0D; --ink:#E9EDDA; --body:#C9CDBC; --muted:#A8A49C;
+          --bg:#171515; --card:#211F1F; --line:#332F2F; --amber:#BDE302; }
   * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--ink);
          font:16px/1.65 -apple-system,"Segoe UI",system-ui,sans-serif; }
   .wrap { max-width:720px; margin:0 auto; padding:0 24px; }
-  header { background:var(--navy); color:#f4f2ed; padding:40px 0; }
-  header a { color:#e8a33d; text-decoration:none; font-size:15px; font-weight:600; }
+  header { background:var(--navy); color:var(--ink); padding:40px 0; }
+  header a { color:var(--amber); text-decoration:none; font-size:15px; font-weight:600; }
   h1 { font-size:30px; margin:16px 0 6px; font-weight:600; }
-  header p { margin:0; color:#9fb0c8; font-size:14px; }
+  header p { margin:0; color:var(--muted); font-size:14px; }
   main { padding:44px 0 56px; }
   h2 { font-size:18px; margin:32px 0 10px; font-weight:600; }
   h2:first-child { margin-top:0; }

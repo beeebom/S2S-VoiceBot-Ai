@@ -63,12 +63,12 @@ STAGES = [
 ]
 
 TONES = {
-    "sky": "#2f6f9f",
-    "cyan": "#1f7a8c",
-    "amber": "#8f6220",
-    "plum": "#6b4a86",
-    "green": "#1e6b4f",
-    "navy": "#10213d",
+    "sky": "#6FA8D6",
+    "cyan": "#5BC8C0",
+    "amber": "#BDE302",
+    "plum": "#B49BD8",
+    "green": "#7FD6A0",
+    "navy": "#E9EDDA",
 }
 
 
@@ -95,8 +95,8 @@ def diagram_css() -> str:
 .stage h3 {{ font-size:16.5px; margin:5px 0 2px; font-weight:600; letter-spacing:-.01em; }}
 .stage .sub {{
   display:inline-block; font-size:12px; font-weight:600; color:var(--tone);
-  background:color-mix(in srgb, var(--tone) 9%, transparent);
-  border:1px solid color-mix(in srgb, var(--tone) 26%, transparent);
+  background:color-mix(in srgb, var(--tone) 13%, transparent);
+  border:1px solid color-mix(in srgb, var(--tone) 34%, transparent);
   border-radius:5px; padding:2px 7px; margin-bottom:9px;
 }}
 .stage ul {{ margin:0; padding:0; list-style:none; }}
@@ -115,19 +115,19 @@ def diagram_css() -> str:
 .arch-legend span {{ display:flex; align-items:center; gap:6px; }}
 .arch-legend i {{ width:9px; height:9px; border-radius:2px; display:inline-block; }}
 .latency {{
-  margin-top:16px; background:var(--navy); color:#c8d4e6; border-radius:10px;
+  margin-top:16px; background:var(--card-2); border:1px solid var(--line); color:var(--body); border-radius:10px;
   padding:15px 18px; font-size:13.5px; line-height:1.6;
 }}
-.latency b {{ color:#f4f2ed; }}
+.latency b {{ color:var(--ink); }}
 .latency .budget {{
   display:flex; gap:7px; flex-wrap:wrap; margin-top:10px;
   font-variant-numeric:tabular-nums;
 }}
 .latency .budget span {{
-  background:var(--navy-2); border:1px solid var(--line-navy); border-radius:6px;
-  padding:4px 9px; font-size:12.5px; color:#9fb0c8;
+  background:#171515; border:1px solid var(--line-2); border-radius:6px;
+  padding:4px 9px; font-size:12.5px; color:var(--muted);
 }}
-.latency .budget b {{ color:#e8a33d; font-weight:700; }}
+.latency .budget b {{ color:var(--lime); font-weight:700; }}
 """
 
 

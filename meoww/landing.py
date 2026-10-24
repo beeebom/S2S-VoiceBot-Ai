@@ -63,14 +63,29 @@ def landing_page(stats: Dict) -> str:
 <meta property="og:title" content="Meoww">
 <meta property="og:description" content="A voice agent that calls churned users and turns the conversation into a record someone can act on.">
 <meta name="theme-color" content="#10213d">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 76 76'><rect width='76' height='76' rx='18' fill='%23E8A33D'/><path d='M20 30h26a9 9 0 0 1 0 18H30' fill='none' stroke='%2310213D' stroke-width='5.5' stroke-linecap='round'/><path d='M36 40l-7 8 7 8' fill='none' stroke='%2310213D' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 76 76'><rect width='76' height='76' rx='18' fill='%23BDE302'/><path d='M20 30h26a9 9 0 0 1 0 18H30' fill='none' stroke='%23171515' stroke-width='5.5' stroke-linecap='round'/><path d='M36 40l-7 8 7 8' fill='none' stroke='%23171515' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <style>
 :root {{
-  --navy:#10213d; --navy-2:#17294a; --line-navy:#2c4169;
-  --ink:#1a2330; --body:#4a5568; --muted:#6b7689;
-  --bg:#f4f2ed; --card:#fff; --line:#ddd8cc;
-  --amber:#a8742a; --amber-br:#e8a33d; --amber-bg:#fbf3e4;
-  --green:#1e6b4f;
+  /* One dark ground throughout. Lime is the accent, bone is the reading
+     colour; the two never sit on each other, since lime on bone is 1.2:1. */
+  --bg:#171515;          /* page */
+  --card:#211F1F;        /* raised surface */
+  --card-2:#2A2727;      /* surface on a surface */
+  --line:#332F2F;        /* hairline */
+  --line-2:#413C3C;      /* hairline, stronger */
+
+  --ink:#E9EDDA;         /* headings */
+  --body:#C9CDBC;        /* body text */
+  --muted:#A8A49C;       /* secondary */
+
+  --lime:#BDE302;        /* accent */
+  --lime-dim:#8FA800;    /* accent, quieter */
+  --lime-wash:#1E2409;   /* accent background */
+
+  /* Legacy names kept so existing rules resolve to the new ground. */
+  --navy:#171515; --navy-2:#211F1F; --line-navy:#332F2F;
+  --amber:#BDE302; --amber-br:#BDE302; --amber-bg:#1E2409;
+  --green:#BDE302;
   --step:clamp(14px, 1.1vw, 16px);
   --h1:clamp(32px, 6.2vw, 58px);
   --h2:clamp(22px, 3.4vw, 30px);
@@ -96,8 +111,8 @@ h1 {{ font-size:var(--h1); line-height:1.1; margin:0 0 18px; font-weight:600; le
    so it stays crisp at any size and can take the palette. */
 .hero-art {{ position:relative; display:flex; justify-content:center; align-items:center; }}
 .hero-art svg {{ width:min(100%, 300px); height:auto; overflow:visible; }}
-.bubble {{ fill:none; stroke:var(--amber-br); stroke-width:3.4; stroke-linecap:round; stroke-linejoin:round; }}
-.wave {{ fill:none; stroke:#f4f2ed; stroke-width:3.4; stroke-linecap:round; stroke-linejoin:round; }}
+.bubble {{ fill:none; stroke:var(--lime); stroke-width:3.4; stroke-linecap:round; stroke-linejoin:round; }}
+.wave {{ fill:none; stroke:var(--ink); stroke-width:3.4; stroke-linecap:round; stroke-linejoin:round; }}
 .bubble, .wave {{ stroke-dasharray:var(--len); stroke-dashoffset:var(--len); }}
 .drawn .bubble {{ animation:draw 1.1s var(--ease) forwards; }}
 .drawn .wave {{ animation:draw .9s var(--ease) .45s forwards; }}
@@ -129,8 +144,8 @@ h1 {{ font-size:var(--h1); line-height:1.1; margin:0 0 18px; font-weight:600; le
 }}
 .rot-tag {{
   font-size:12px; font-weight:700; letter-spacing:.8px; text-transform:uppercase;
-  color:var(--amber-br); background:rgba(232,163,61,.12);
-  border:1px solid rgba(232,163,61,.3); border-radius:5px; padding:3px 8px; white-space:nowrap;
+  color:var(--lime); background:var(--lime-wash);
+  border:1px solid #3A4A0B; border-radius:5px; padding:3px 8px; white-space:nowrap;
 }}
 .cta {{ display:flex; gap:12px; margin-top:clamp(26px,4vw,38px); flex-wrap:wrap; }}
 .cta a, .cta button {{
@@ -145,6 +160,9 @@ h1 {{ font-size:var(--h1); line-height:1.1; margin:0 0 18px; font-weight:600; le
 
 /* ---- sections ---- */
 section {{ position:relative; padding:var(--sect) 0; border-bottom:1px solid var(--line); }}
+/* Every other section sits a shade higher, so the page still has a pulse
+   without leaving the one ground colour. */
+section.raised {{ background:#1C1A1A; }}
 
 /* A faint woven texture stops the flat fills reading as a template.
    Two offset repeating gradients, both under 3% opacity: at normal viewing
@@ -157,39 +175,13 @@ body::before {{
 }}
 header, section, footer {{ position:relative; z-index:1; }}
 
-/* Dark sections break the cream run so the page has a pulse. */
-section.dark {{
-  background:var(--navy); color:#e7ecf4; border-bottom-color:var(--line-navy);
-}}
-section.dark h2 {{ color:var(--amber-br); }}
-section.dark .sect-h {{ color:#f4f2ed; }}
-section.dark p {{ color:#c8d4e6; }}
-section.dark .lede {{ color:#f4f2ed; }}
-section.dark .box {{ background:var(--navy-2); border-color:var(--line-navy); }}
-section.dark .box h3 {{ color:#f4f2ed; }}
-section.dark .box p {{ color:#aebdd4; }}
-section.dark .box:hover {{ border-color:#44618f; }}
-section.dark .num {{ background:var(--amber-br); color:#231705; }}
-section.dark .convo {{ background:var(--navy-2); border-color:var(--line-navy); }}
-section.dark .who {{ color:var(--amber-br); }}
-section.dark .turn {{ color:#dce5f1; }}
-section.dark .turn.key .what {{
-  background:rgba(232,163,61,.14); box-shadow:0 0 0 4px rgba(232,163,61,.14); color:#f4f2ed;
-}}
-section.dark .note {{
-  background:var(--navy-2); border-color:var(--line-navy);
-  border-left-color:var(--amber-br); color:#c8d4e6;
-}}
-section.dark .note b {{ color:#f4f2ed; }}
-section.dark pre {{ background:#0b182d; border:1px solid var(--line-navy); }}
-
 /* Section numbering gives the page an index rather than a scroll. */
 .sect-no {{
   position:absolute; top:calc(var(--sect) - 8px); right:var(--gut);
-  font-size:13px; font-weight:700; letter-spacing:2px; color:var(--line);
+  font-size:13px; font-weight:700; letter-spacing:2px; color:var(--muted);
   font-variant-numeric:tabular-nums;
 }}
-section.dark .sect-no {{ color:var(--line-navy); }}
+
 @media (max-width:760px) {{ .sect-no {{ display:none; }} }}
 section:last-of-type {{ border-bottom:none; }}
 h2 {{ font-size:12px; letter-spacing:1.7px; text-transform:uppercase; color:var(--amber); margin:0 0 18px; font-weight:700; }}
@@ -213,39 +205,39 @@ p:last-child {{ margin-bottom:0; }}
 .box p {{ margin:0; font-size:14.5px; line-height:1.55; }}
 .num {{
   display:inline-flex; align-items:center; justify-content:center;
-  width:22px; height:22px; background:var(--navy); color:#fff;
+  width:22px; height:22px; background:var(--lime); color:#171515;
   border-radius:6px; font-size:12px; font-weight:700; margin-bottom:10px;
 }}
 
 /* conversation */
-.convo {{ background:var(--card); border:1px solid var(--line); border-left:3px solid var(--amber-br); border-radius:0 10px 10px 0; padding:clamp(16px,2.6vw,22px); }}
+.convo {{ background:var(--card); border:1px solid var(--line); border-left:3px solid var(--lime); border-radius:0 10px 10px 0; padding:clamp(16px,2.6vw,22px); }}
 .turn {{ display:flex; gap:10px; margin-bottom:11px; font-size:clamp(14px,1.8vw,16px); line-height:1.5; }}
 .turn:last-child {{ margin-bottom:0; }}
-.who {{ font-weight:700; color:var(--navy); min-width:52px; flex-shrink:0; }}
-.turn.key .what {{ background:var(--amber-bg); box-shadow:0 0 0 4px var(--amber-bg); border-radius:3px; }}
+.who {{ font-weight:700; color:var(--lime); min-width:52px; flex-shrink:0; }}
+.turn.key .what {{ background:var(--lime-wash); box-shadow:0 0 0 4px var(--lime-wash); border-radius:3px; color:var(--ink); }}
 
 /* chart */
 .chart {{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:clamp(16px,2.6vw,24px); }}
 .bar-row {{ display:flex; align-items:center; gap:12px; margin-bottom:9px; font-size:14px; }}
 .bar-row:last-child {{ margin-bottom:0; }}
-.bar-name {{ width:clamp(88px,15vw,132px); flex-shrink:0; font-weight:600; text-transform:capitalize; color:var(--ink); }}
-.bar-track {{ flex:1; height:9px; background:#efece4; border-radius:5px; overflow:hidden; }}
-.bar-fill {{ display:block; height:100%; width:var(--w); background:var(--amber); border-radius:5px; transform-origin:left; }}
+.bar-name {{ width:clamp(88px,15vw,132px); flex-shrink:0; font-weight:600; text-transform:capitalize; color:var(--body); }}
+.bar-track {{ flex:1; height:9px; background:var(--card-2); border-radius:5px; overflow:hidden; }}
+.bar-fill {{ display:block; height:100%; width:var(--w); background:var(--lime); border-radius:5px; transform-origin:left; }}
 .bar-n {{ width:22px; text-align:right; color:var(--muted); font-variant-numeric:tabular-nums; }}
 
 /* stats */
 .stats {{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px; }}
 @media (max-width:620px) {{ .stats {{ grid-template-columns:repeat(2,1fr); }} }}
 .stat {{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px; }}
-.stat.accent {{ background:var(--navy); border-color:var(--navy); }}
-.stat .v {{ font-size:clamp(26px,4vw,32px); font-weight:600; color:var(--navy); line-height:1.1; letter-spacing:-.02em; }}
-.stat.accent .v {{ color:#fff; }}
+.stat.accent {{ background:var(--lime); border-color:var(--lime); }}
+.stat .v {{ font-size:clamp(26px,4vw,32px); font-weight:600; color:var(--ink); line-height:1.1; letter-spacing:-.02em; }}
+.stat.accent .v {{ color:#171515; }}
 .stat .l {{ font-size:12.5px; color:var(--muted); margin-top:4px; line-height:1.4; }}
-.stat.accent .l {{ color:#9fb0c8; }}
+.stat.accent .l {{ color:#3C4A06; }}
 
-.note {{ background:#fff5e0; border:1px solid #e2b86a; border-left:4px solid var(--amber); border-radius:9px; padding:17px 19px; font-size:14.5px; line-height:1.6; color:#5c4414; }}
-.note b {{ color:#4a3208; }}
-pre {{ background:var(--navy); color:#e4ecf7; padding:16px 18px; border-radius:9px; overflow-x:auto; font-size:13.5px; line-height:1.7; margin:0; }}
+.note {{ background:var(--lime-wash); border:1px solid #3A4A0B; border-left:4px solid var(--lime); border-radius:9px; padding:17px 19px; font-size:14.5px; line-height:1.6; color:var(--body); }}
+.note b {{ color:var(--ink); }}
+pre {{ background:#0E0D0D; border:1px solid var(--line); color:var(--body); padding:16px 18px; border-radius:9px; overflow-x:auto; font-size:13.5px; line-height:1.7; margin:0; }}
 code {{ font-family:ui-monospace,Menlo,Consolas,monospace; }}
 
 footer {{ padding:34px 0 clamp(40px,8vw,64px); font-size:13.5px; color:var(--muted); }}
@@ -312,7 +304,7 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
 <header>
   <div class="wrap">
     <div class="mark rise in">
-      <svg width="32" height="32" viewBox="0 0 76 76" aria-label="Meoww"><rect width="76" height="76" rx="18" fill="#E8A33D"/><path d="M20 30h26a9 9 0 0 1 0 18H30" fill="none" stroke="#10213D" stroke-width="5.5" stroke-linecap="round"/><path d="M36 40l-7 8 7 8" fill="none" stroke="#10213D" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="32" height="32" viewBox="0 0 76 76" aria-label="Meoww"><rect width="76" height="76" rx="18" fill="#BDE302"/><path d="M20 30h26a9 9 0 0 1 0 18H30" fill="none" stroke="#171515" stroke-width="5.5" stroke-linecap="round"/><path d="M36 40l-7 8 7 8" fill="none" stroke="#171515" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>Meoww</span>
     </div>
     <div class="hero">
@@ -379,7 +371,7 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
   </div>
 </section>
 
-<section id="how" class="dark">
+<section id="how" class="raised">
   <span class="sect-no">02</span>
   <div class="wrap">
     <h2 class="rise">How it works</h2>
@@ -401,7 +393,7 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
   </div>
 </section>
 
-<section id="interview" class="dark">
+<section id="interview" class="raised">
   <span class="sect-no">04</span>
   <div class="wrap">
     <h2 class="rise">The interview is the product</h2>
@@ -441,7 +433,7 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
   </div>
 </section>
 
-<section id="state" class="dark">
+<section id="state" class="raised">
   <span class="sect-no">06</span>
   <div class="wrap">
     <h2 class="rise">What is built, and what is not</h2>
