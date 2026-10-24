@@ -5,6 +5,8 @@ import html
 import json
 from typing import Dict, List, Tuple
 
+from .diagram import diagram_css, diagram_html
+
 REPO = "https://github.com/beeebom/S2S-VoiceBot-Ai"
 
 ROTATOR: List[Tuple[str, str]] = [
@@ -21,6 +23,8 @@ TOUR = [
      "A user leaves and you get six words. Nothing an engineer can act on."),
     ("#how", "The pipeline",
      "A churn signal becomes a call, the call becomes a typed record."),
+    ("#arch", "The pipeline",
+     "Six stages, each streaming, because the round trip is a latency budget."),
     ("#interview", "The interview",
      "This is the product: the agent digs until the answer is specific."),
     ("#honest", "Honest data",
@@ -31,6 +35,8 @@ TOUR = [
 
 
 def landing_page(stats: Dict) -> str:
+    css = diagram_css()
+    arch = diagram_html()
     rotator = json.dumps([{"q": q, "tag": t} for q, t in ROTATOR])
     tour = json.dumps([{"sel": s, "title": t, "body": b} for s, t, b in TOUR])
     reasons = stats.get("reasons_ranked") or []
@@ -200,6 +206,8 @@ footer {{ padding:34px 0 clamp(40px,8vw,64px); font-size:13.5px; color:var(--mut
 footer a {{ color:var(--amber); }}
 footer .links {{ margin-top:7px; }}
 
+{css}
+
 /* ---- motion ---- */
 .rise {{ opacity:0; transform:translateY(14px); transition:opacity .5s var(--ease), transform .5s var(--ease); }}
 .rise.in {{ opacity:1; transform:none; }}
@@ -333,6 +341,14 @@ body.touring .scrim {{ opacity:1; pointer-events:auto; }}
       <div class="box rise d2"><span class="num">3</span><p>The call becomes a typed record: reason, severity, the price they would have stayed at.</p></div>
       <div class="box rise d3"><span class="num">4</span><p>Each field is scored, and marked as either stated by the user or inferred.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="arch">
+  <div class="wrap">
+    <h2 class="rise">The voice pipeline</h2>
+    <p class="sect-h rise d1">Six stages between a ringing phone and a typed record.</p>
+{arch}
   </div>
 </section>
 
